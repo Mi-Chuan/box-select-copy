@@ -17,17 +17,41 @@
 
 要求：DSH Web 客户端支持客户端 bundle 插件（`dsh.client`）。
 
-1. 克隆仓库：
+### 方式一：直接从 GitHub 安装（推荐）
 
-   ```bash
-   git clone https://github.com/Mi-Chuan/column-select-copy.git
-   ```
+在 DSH 的插件管理页选择安装外部 bundle，把安装目标填为：
 
-2. 在 DSH 中安装该目录（即包含 `package.json` 的 `column-select-copy` 目录），安装后启用插件。
+```text
+github:Mi-Chuan/column-select-copy
+```
 
-3. 刷新 DSH 页面。
+也可以直接对 Agent 说：
 
-> 本仓库是本地 bundle 源码，尚未发布到 npm。安装时请指向克隆后的目录，而不是仓库根目录之外的位置。
+```text
+请用 plugin_manager 的 install_bundle 安装 github:Mi-Chuan/column-select-copy
+```
+
+安装完成后刷新 DSH 页面。
+
+> 这种方式由 pnpm 通过 Git 读取仓库。如果本机 Git 访问 GitHub 失败（例如 Windows 上出现 `CRYPT_E_NO_REVOCATION_CHECK`），请改用方式二。
+
+### 方式二：下载 Release 压缩包
+
+从 [Releases](https://github.com/Mi-Chuan/column-select-copy/releases/latest) 下载 `column-select-copy-1.0.0.tgz`，然后把安装目标填为压缩包的绝对路径，或直接填下载地址：
+
+```text
+https://github.com/Mi-Chuan/column-select-copy/releases/download/v1.0.0/column-select-copy-1.0.0.tgz
+```
+
+### 方式三：克隆到本地安装（开发用）
+
+```bash
+git clone https://github.com/Mi-Chuan/column-select-copy.git
+```
+
+在 DSH 中把安装目标指向克隆后的 `column-select-copy` 目录（包含 `package.json` 的那一层），安装后启用插件并刷新页面。
+
+> 本仓库尚未发布到 npm；安装目标是仓库目录或上面的 Release 压缩包，不是 GitHub 网页地址。
 
 ## 使用
 
