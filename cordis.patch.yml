@@ -1,0 +1,3 @@
+- insert:
+    - id: column-select-copy
+      name: '@local/column-select-copy'
