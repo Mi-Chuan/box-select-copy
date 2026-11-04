@@ -1,6 +1,6 @@
 {
   "meta": {
-    "title": "Column Select Copy",
-    "description": "Hold Alt and drag a rectangle over the conversation to copy the text inside it."
+    "title": "Box Select Copy",
+    "description": "Hold Alt and drag a box over the conversation to copy the text inside it."
   }
 }

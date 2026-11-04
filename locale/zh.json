@@ -1,6 +1,6 @@
 {
   "meta": {
-    "title": "竖装选字复制",
+    "title": "框选复制",
     "description": "按住 Alt 拖拽矩形选框，复制框内文本。"
   }
 }

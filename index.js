@@ -1,2 +1,2 @@
-/** Host half of the column-select-copy bundle; the Client module owns the behavior. */
+/** Host half of the box-select-copy bundle; the Client module owns the behavior. */
 export function apply() {}

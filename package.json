@@ -1,21 +1,21 @@
 {
-  "name": "@local/column-select-copy",
-  "version": "1.0.0",
-  "description": "Alt+drag rectangular (column) text selection and copy for the DSH conversation view.",
+  "name": "@local/box-select-copy",
+  "version": "1.1.0",
+  "description": "Alt+drag box (rectangular) text selection and copy for the DSH conversation view.",
   "license": "MIT",
   "author": "Mi-Chuan",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Mi-Chuan/column-select-copy.git"
+    "url": "git+https://github.com/Mi-Chuan/box-select-copy.git"
   },
-  "homepage": "https://github.com/Mi-Chuan/column-select-copy#readme",
+  "homepage": "https://github.com/Mi-Chuan/box-select-copy#readme",
   "bugs": {
-    "url": "https://github.com/Mi-Chuan/column-select-copy/issues"
+    "url": "https://github.com/Mi-Chuan/box-select-copy/issues"
   },
   "keywords": [
     "dsh",
     "dsh-plugin",
-    "column-selection",
+    "box-selection",
     "clipboard"
   ],
   "type": "module",

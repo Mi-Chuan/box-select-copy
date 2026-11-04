@@ -1,15 +1,15 @@
-# 竖装选字复制（Column Select Copy）
+# 框选复制（Box Select Copy）
 
 一个 DSH（DeepSeek Harness）Web 客户端插件：按住 **Alt** 用鼠标左键拖出矩形选框，松开后自动复制框内所有文本，并弹出轻量提示。
 
-适合从对话、代码块或表格里按列摘取内容，而不必逐行拖选。
+适合从对话、代码块或表格里按块摘取内容，而不必逐行拖选。
 
 ## 功能
 
 - **Alt + 左键拖拽**：在对话正文区域画出矩形（块/列）选框
 - **松开即复制**：提取选框覆盖的所有文本，写入系统剪贴板
 - **轻量提示**：成功显示 `✅ 已复制`；空选/失败也有对应提示
-- **保留列结构**：同一行内跨度较大的列之间自动补 `\t`
+- **保留横向间隔**：同一行内跨度较大的列之间自动补 `\t`
 - **主题适配**：选框与提示使用 DSH 主题 token，自动适配明暗主题
 - **可取消**：拖拽中按 `Esc` 或窗口失焦即取消
 
@@ -22,13 +22,13 @@
 在 DSH 的插件管理页选择安装外部 bundle，把安装目标填为：
 
 ```text
-github:Mi-Chuan/column-select-copy
+github:Mi-Chuan/box-select-copy
 ```
 
 也可以直接对 Agent 说：
 
 ```text
-请用 plugin_manager 的 install_bundle 安装 github:Mi-Chuan/column-select-copy
+请用 plugin_manager 的 install_bundle 安装 github:Mi-Chuan/box-select-copy
 ```
 
 安装完成后刷新 DSH 页面。
@@ -37,21 +37,23 @@ github:Mi-Chuan/column-select-copy
 
 ### 方式二：下载 Release 压缩包
 
-从 [Releases](https://github.com/Mi-Chuan/column-select-copy/releases/latest) 下载 `column-select-copy-1.0.0.tgz`，然后把安装目标填为压缩包的绝对路径，或直接填下载地址：
+从 [Releases](https://github.com/Mi-Chuan/box-select-copy/releases/latest) 下载 `box-select-copy-1.1.0.tgz`，然后把安装目标填为压缩包的绝对路径，或直接填下载地址：
 
 ```text
-https://github.com/Mi-Chuan/column-select-copy/releases/download/v1.0.0/column-select-copy-1.0.0.tgz
+https://github.com/Mi-Chuan/box-select-copy/releases/download/v1.1.0/box-select-copy-1.1.0.tgz
 ```
 
 ### 方式三：克隆到本地安装（开发用）
 
 ```bash
-git clone https://github.com/Mi-Chuan/column-select-copy.git
+git clone https://github.com/Mi-Chuan/box-select-copy.git
 ```
 
-在 DSH 中把安装目标指向克隆后的 `column-select-copy` 目录（包含 `package.json` 的那一层），安装后启用插件并刷新页面。
+在 DSH 中把安装目标指向克隆后的 `box-select-copy` 目录（包含 `package.json` 的那一层），安装后启用插件并刷新页面。
 
 > 本仓库尚未发布到 npm；安装目标是仓库目录或上面的 Release 压缩包，不是 GitHub 网页地址。
+
+> 从旧版 `@local/column-select-copy` 升级：请先卸载旧插件，再安装本版本。包名、插件 ID 和仓库名都已改为 `box-select-copy`。
 
 ## 使用
 

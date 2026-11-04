@@ -1,13 +1,13 @@
 window.__ModuleLoader__.load({
-  id: '@local/column-select-copy',
+  id: '@local/box-select-copy',
   factory(require) {
     const React = require('react');
     const h = React.createElement;
 
-    const NS = 'column-select-copy';
+    const NS = 'box-select-copy';
     const MIN_DRAG = 4;
     const LINE_TOLERANCE = 10;
-    const COLUMN_GAP = 12;
+    const CELL_GAP = 12;
     const TOAST_MS = 1600;
 
     const zh = {
@@ -57,7 +57,7 @@ window.__ModuleLoader__.load({
       if (tag === 'SCRIPT' || tag === 'STYLE' || tag === 'NOSCRIPT' || tag === 'TEMPLATE') return true;
       if (tag === 'SVG' || tag === 'TEXTAREA' || tag === 'INPUT' || tag === 'SELECT') return true;
       if (element.getAttribute('aria-hidden') === 'true') return true;
-      if (element.hasAttribute('data-column-select-ui')) return true;
+      if (element.hasAttribute('data-box-select-ui')) return true;
       return false;
     }
 
@@ -195,7 +195,7 @@ window.__ModuleLoader__.load({
           if (previous) {
             const gap = c.left - previous.right;
             if (
-              gap > COLUMN_GAP &&
+              gap > CELL_GAP &&
               output.length > 0 &&
               !/\s$/.test(output) &&
               !/^\s/.test(c.ch)
@@ -242,7 +242,7 @@ window.__ModuleLoader__.load({
       }
     }
 
-    function ColumnSelectOverlay({ t }) {
+    function BoxSelectOverlay({ t }) {
       const translate = typeof t === 'function' ? t : (key) => key;
       const translateRef = React.useRef(translate);
       translateRef.current = translate;
@@ -286,7 +286,7 @@ window.__ModuleLoader__.load({
           if (!event.isPrimary) return;
           const target = isElement(event.target) ? event.target : null;
           if (!target) return;
-          if (target.closest('[data-column-select-ui]')) return;
+          if (target.closest('[data-box-select-ui]')) return;
           const root = findTextRoot(target);
           if (!root) return;
 
@@ -341,7 +341,7 @@ window.__ModuleLoader__.load({
           try {
             text = extractTextInRect(state.root, state.rect);
           } catch (error) {
-            console.error('[column-select-copy] failed to extract text', error);
+            console.error('[box-select-copy] failed to extract text', error);
           }
           if (!text) {
             showToast(translateRef.current('empty'));
@@ -391,7 +391,7 @@ window.__ModuleLoader__.load({
       if (drag) {
         children.push(h('div', {
           key: 'marquee',
-          'data-column-select-ui': '',
+          'data-box-select-ui': '',
           style: {
             position: 'fixed',
             left: `${drag.rect.left}px`,
@@ -410,7 +410,7 @@ window.__ModuleLoader__.load({
       if (toast) {
         children.push(h('div', {
           key: 'toast',
-          'data-column-select-ui': '',
+          'data-box-select-ui': '',
           role: 'status',
           'aria-live': 'polite',
           style: {
@@ -432,14 +432,14 @@ window.__ModuleLoader__.load({
             whiteSpace: 'nowrap',
             pointerEvents: 'none',
             zIndex: 2147483001,
-            animation: 'dsh-column-select-copy-toast-in 140ms ease-out',
+            animation: 'dsh-box-select-copy-toast-in 140ms ease-out',
           },
         }, toast.message));
       }
 
       children.push(h('style', {
         key: 'style',
-        children: '@keyframes dsh-column-select-copy-toast-in{from{opacity:0;transform:translate(-50%,6px)}to{opacity:1;transform:translate(-50%,0)}}',
+        children: '@keyframes dsh-box-select-copy-toast-in{from{opacity:0;transform:translate(-50%,6px)}to{opacity:1;transform:translate(-50%,0)}}',
       }));
 
       return h(React.Fragment, null, children);
@@ -448,18 +448,18 @@ window.__ModuleLoader__.load({
     function apply(ctx) {
       ctx.effect(
         () => ctx.locale.register(NS, { zh, en }),
-        'column-select-copy: dictionaries',
+        'box-select-copy: dictionaries',
       );
       ctx.slots.inject('shell.overlay', () => ctx.slots.register({
         name: 'shell.overlay',
-        id: 'column-select-copy',
+        id: 'box-select-copy',
         order: 50,
         locale: NS,
-      }, ColumnSelectOverlay));
+      }, BoxSelectOverlay));
     }
 
     const result = { inject: ['slots', 'locale'], apply };
-    if (window.__DSH_COLUMN_SELECT_COPY_TEST__) {
+    if (window.__DSH_BOX_SELECT_COPY_TEST__) {
       result.__test = { extractTextInRect, normalizeRect };
     }
     return result;
