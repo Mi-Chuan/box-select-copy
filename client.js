@@ -1,5 +1,5 @@
 window.__ModuleLoader__.load({
-  id: '@local/box-select-copy',
+  id: 'box-select-copy',
   factory(require) {
     const React = require('react');
     const h = React.createElement;

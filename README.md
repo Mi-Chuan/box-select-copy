@@ -33,17 +33,33 @@ github:Mi-Chuan/box-select-copy
 
 安装完成后刷新 DSH 页面。
 
-> 这种方式由 pnpm 通过 Git 读取仓库。如果本机 Git 访问 GitHub 失败（例如 Windows 上出现 `CRYPT_E_NO_REVOCATION_CHECK`），请改用方式二。
+> 这种方式由 pnpm 通过 Git 读取仓库。如果本机 Git 访问 GitHub 失败（例如 Windows 上出现 `CRYPT_E_NO_REVOCATION_CHECK`），请改用方式二或方式三。
 
-### 方式二：下载 Release 压缩包
+### 方式二：从 npm 安装
 
-从 [Releases](https://github.com/Mi-Chuan/box-select-copy/releases/latest) 下载 `box-select-copy-1.1.0.tgz`，然后把安装目标填为压缩包的绝对路径，或直接填下载地址：
+包已发布到 npm：
 
 ```text
-https://github.com/Mi-Chuan/box-select-copy/releases/download/v1.1.0/box-select-copy-1.1.0.tgz
+box-select-copy
 ```
 
-### 方式三：克隆到本地安装（开发用）
+在 DSH 插件管理页把安装目标填为上面的包名，或对 Agent 说：
+
+```text
+请用 plugin_manager 的 install_bundle 安装 box-select-copy
+```
+
+安装完成后刷新 DSH 页面。
+
+### 方式三：下载 Release 压缩包
+
+从 [Releases](https://github.com/Mi-Chuan/box-select-copy/releases/latest) 下载 `box-select-copy-1.1.1.tgz`，然后把安装目标填为压缩包的绝对路径，或直接填下载地址：
+
+```text
+https://github.com/Mi-Chuan/box-select-copy/releases/download/v1.1.1/box-select-copy-1.1.1.tgz
+```
+
+### 方式四：克隆到本地安装（开发用）
 
 ```bash
 git clone https://github.com/Mi-Chuan/box-select-copy.git
@@ -51,9 +67,9 @@ git clone https://github.com/Mi-Chuan/box-select-copy.git
 
 在 DSH 中把安装目标指向克隆后的 `box-select-copy` 目录（包含 `package.json` 的那一层），安装后启用插件并刷新页面。
 
-> 本仓库尚未发布到 npm；安装目标是仓库目录或上面的 Release 压缩包，不是 GitHub 网页地址。
+> npm 包名、插件 ID 和 GitHub 仓库名都是 `box-select-copy`，三处保持一致。
 
-> 从旧版 `@local/column-select-copy` 升级：请先卸载旧插件，再安装本版本。包名、插件 ID 和仓库名都已改为 `box-select-copy`。
+> 从旧版 `@local/column-select-copy` 或 `@local/box-select-copy` 升级：请先卸载旧插件，再安装本版本。
 
 ## 使用
 
